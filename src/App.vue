@@ -1,29 +1,34 @@
 <template>
-  <button @click="addLike">Like</button>
-  <button @click="addDislike">Dislike</button>
-  <div>Количество like: {{like}}</div>
-  <div>Количество dislike: {{dislike}}</div>
+  <div class="post">
+    <div>Название: <strong>Пост о JS</strong></div>
+    <div>Описание: <strong>Описание поста</strong></div>
+  </div>
+  <div class="post">
+    <div>Название: <strong>Пост о JS</strong></div>
+    <div>Описание: <strong>Описание поста</strong></div>
+  </div>
+  <div class="post">
+    <div>Название: <strong>Пост о JS</strong></div>
+    <div>Описание: <strong>Описание поста</strong></div>
+  </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      like: 0,
-      dislike: 0
-    }
-  },
-  methods: {
-    addLike() {
-      this.like++;
-    },
-    addDislike() {
-      this.dislike++;
-    }
-  }
+
 }
 </script>
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+  .post {
+    margin: 15px 2vw 0;
+    padding: 15px 0px 15px 5px;
+    border: 2px solid teal;
+  }
 </style>
