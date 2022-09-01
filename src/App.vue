@@ -1,8 +1,18 @@
 <template>
-  <form>
-    <input type="text" class="input" placeholder="Название">
-    <input type="text" class="input" placeholder="Описание">
-    <button class="btn">Добавить</button>
+  <form @submit.prevent>
+    <input 
+    v-bind:value="title"
+    @input="title = $event.target.value"
+    type="text" 
+    class="input" 
+    placeholder="Название">
+    <input 
+    v-bind:value="text"
+    @input="text = $event.target.value"
+    type="text" 
+    class="input" 
+    placeholder="Описание">
+    <button @click="createPost" class="btn">Добавить</button>
   </form>
   <div class="post" v-bind:key="post.id" v-for="post in posts">
     <div>Название: <strong>{{post.title}}</strong></div>
@@ -11,6 +21,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -31,6 +42,22 @@ export default {
           text: "Описание поста 3",
         }
       ],
+      title: '',
+      text: '',
+    }
+  },
+  methods: {
+    inputPost(event) {
+      console.log(event.target.value)
+      this.title = 'new post'
+    },
+    createPost() {
+      const new_post = {
+        id: Date.now(), 
+        title: this.title, 
+        text: this.text
+      }
+      this.posts.push(new_post)
     }
   }
 }
