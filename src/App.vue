@@ -47,10 +47,6 @@ export default {
     }
   },
   methods: {
-    inputPost(event) {
-      console.log(event.target.value)
-      this.title = 'new post'
-    },
     createPost() {
       const new_post = {
         id: Date.now(), 
@@ -58,6 +54,7 @@ export default {
         text: this.text
       }
       this.posts.push(new_post)
+      this.title = this.text = ''
     }
   }
 }
